@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A tiny web game about making Korean banchan side dishes.">
+    <title>Banchan Maker</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="Small banchan dishes">
+            <circle cx="32" cy="32" r="28" fill="#f4f7fb"></circle>
+            <ellipse cx="23" cy="29" rx="13" ry="9" fill="#2f8f6f"></ellipse>
+            <ellipse cx="42" cy="25" rx="11" ry="8" fill="#c83e35"></ellipse>
+            <ellipse cx="39" cy="42" rx="15" ry="9" fill="#d9a928"></ellipse>
+            <path d="M14 31c5 5 14 5 19 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path>
+            <path d="M32 43c5 4 14 4 19 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path>
+          </svg>
+          <div>
+            <p class="eyebrow">Mini Kitchen Game</p>
+            <h1>Banchan Maker</h1>
+          </div>
+        </div>
+        <div class="cookbook-count" aria-live="polite">
+          <span id="dishCount">0</span>
+          <span>Dishes Found</span>
+        </div>
+      </header>
+
+      <section class="game-grid" aria-label="Banchan game">
+        <section class="kitchen" aria-labelledby="requestTitle">
+          <div class="request-strip">
+            <p class="section-label">Today's Table</p>
+            <h2 id="requestTitle"></h2>
+            <p id="requestText"></p>
+          </div>
+
+          <div class="visual-stage" aria-hidden="true">
+            <div class="serving-tray">
+              <div class="rice-bowl">
+                <span></span>
+              </div>
+              <div id="dishVisual" class="dish-visual" data-shape="rounds">
+                <span class="dish-piece piece-a"></span>
+                <span class="dish-piece piece-b"></span>
+                <span class="dish-piece piece-c"></span>
+                <span class="dish-piece piece-d"></span>
+                <span class="dish-garnish garnish-a"></span>
+                <span class="dish-garnish garnish-b"></span>
+                <span class="dish-garnish garnish-c"></span>
+              </div>
+              <div class="chopsticks"></div>
+            </div>
+          </div>
+
+          <div class="stat-board" aria-label="Current banchan balance">
+            <div class="stat-row">
+              <span>Crunch</span>
+              <meter id="statCrunch" min="0" max="10" value="0"></meter>
+            </div>
+            <div class="stat-row">
+              <span>Heat</span>
+              <meter id="statHeat" min="0" max="10" value="0"></meter>
+            </div>
+            <div class="stat-row">
+              <span>Umami</span>
+              <meter id="statUmami" min="0" max="10" value="0"></meter>
+            </div>
+            <div class="stat-row">
+              <span>Tang</span>
+              <meter id="statTang" min="0" max="10" value="0"></meter>
+            </div>
+            <div class="stat-row">
+              <span>Comfort</span>
+              <meter id="statComfort" min="0" max="10" value="0"></meter>
+            </div>
+          </div>
+        </section>
+
+        <section class="counter" aria-labelledby="stepPrompt">
+          <ol id="stepTrack" class="step-track" aria-label="Cooking steps"></ol>
+
+          <div class="choice-header">
+            <p id="stepLabel" class="section-label"></p>
+            <h2 id="stepPrompt"></h2>
+          </div>
+
+          <div id="choiceGrid" class="choice-grid"></div>
+
+          <div class="counter-actions">
+            <button id="backBtn" class="icon-button" type="button" aria-label="Back" title="Back">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <button id="nextBtn" class="primary-button" type="button">Next Step</button>
+          </div>
+
+          <section id="resultPanel" class="result-panel is-hidden" aria-live="polite">
+            <p id="resultRank" class="result-rank"></p>
+            <h2 id="resultDish"></h2>
+            <p id="resultScore" class="score-line"></p>
+            <p id="resultJudge"></p>
+            <div id="resultTags" class="tag-row"></div>
+            <div class="result-actions">
+              <button id="sameRequestBtn" class="secondary-button" type="button">Same Table</button>
+              <button id="newRoundBtn" class="primary-button" type="button">New Table</button>
+            </div>
+          </section>
+        </section>
+
+        <aside class="cookbook" aria-labelledby="cookbookTitle">
+          <p class="section-label">Recipe Book</p>
+          <h2 id="cookbookTitle">Discovered Banchan</h2>
+          <ul id="discoveryList"></ul>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
