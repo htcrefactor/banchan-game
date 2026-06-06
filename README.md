@@ -2,6 +2,8 @@
 
 Banchan Maker is a small web-based cooking game about making Korean side dishes. Pick a main ingredient, prep style, sauce, and finishing touch, then a judge scores the banchan for crunch, heat, umami, tang, and comfort.
 
+Play it here: https://htcrefactor.github.io/banchan-game/
+
 ## Game Concept
 
 - The game borrows the classic staged cooking rhythm of old Korean Flash recipe games without using their names, art, story, or assets.
