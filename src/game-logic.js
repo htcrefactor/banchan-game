@@ -91,6 +91,7 @@ export function buildDish(choices, request) {
     stats: composition.stats,
     tags,
     recipe,
+    clashes,
     title: recipe
       ? `${recipe.name} (${recipe.korean})`
       : `Improvised ${choices.base.name} Banchan`,

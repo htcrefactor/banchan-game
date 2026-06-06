@@ -16,6 +16,7 @@ Play it here: https://htcrefactor.github.io/banchan-game/
 
 - Static HTML, CSS, and JavaScript modules.
 - No build step or runtime dependencies.
+- Korean-first interface with language switching for Korean, English, Japanese, and Simplified Chinese.
 - Responsive layout for desktop, tablet, and mobile screens.
 - Mouse, keyboard, and touch-friendly buttons with large tap targets.
 - `src/game-data.js` contains ingredients, requests, recipe matches, and tier text.

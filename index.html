@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A tiny web game about making Korean banchan side dishes.">
-    <title>Banchan Maker</title>
+    <meta name="description" content="한국 반찬을 만드는 작은 웹 게임입니다.">
+    <title>반찬 만들기</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -20,20 +20,26 @@
             <path d="M32 43c5 4 14 4 19 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"></path>
           </svg>
           <div>
-            <p class="eyebrow">Mini Kitchen Game</p>
-            <h1>Banchan Maker</h1>
+            <p id="brandEyebrow" class="eyebrow">작은 주방 게임</p>
+            <h1 id="gameTitle">반찬 만들기</h1>
           </div>
         </div>
-        <div class="cookbook-count" aria-live="polite">
-          <span id="dishCount">0</span>
-          <span>Dishes Found</span>
+        <div class="topbar-actions">
+          <label class="language-switcher" for="languageSelect">
+            <span id="languageLabel">언어</span>
+            <select id="languageSelect" aria-label="언어 선택"></select>
+          </label>
+          <div class="cookbook-count" aria-live="polite">
+            <span id="dishCount">0</span>
+            <span id="dishCountLabel">발견한 반찬</span>
+          </div>
         </div>
       </header>
 
-      <section class="game-grid" aria-label="Banchan game">
+      <section id="gameGrid" class="game-grid" aria-label="반찬 게임">
         <section class="kitchen" aria-labelledby="requestTitle">
           <div class="request-strip">
-            <p class="section-label">Today's Table</p>
+            <p class="section-label" data-i18n="todayTable">오늘의 밥상</p>
             <h2 id="requestTitle"></h2>
             <p id="requestText"></p>
           </div>
@@ -56,35 +62,35 @@
             </div>
           </div>
 
-          <div class="stat-board" aria-label="Current banchan balance">
+          <div id="statBoard" class="stat-board" aria-label="현재 반찬 밸런스">
             <div class="stat-row">
-              <span>Crunch</span>
+              <span data-stat-label="crunch">아삭함</span>
               <meter id="statCrunch" min="0" max="10" value="0"></meter>
             </div>
             <div class="stat-row">
-              <span>Heat</span>
+              <span data-stat-label="heat">매콤함</span>
               <meter id="statHeat" min="0" max="10" value="0"></meter>
             </div>
             <div class="stat-row">
-              <span>Umami</span>
+              <span data-stat-label="umami">감칠맛</span>
               <meter id="statUmami" min="0" max="10" value="0"></meter>
             </div>
             <div class="stat-row">
-              <span>Tang</span>
+              <span data-stat-label="tang">새콤함</span>
               <meter id="statTang" min="0" max="10" value="0"></meter>
             </div>
             <div class="stat-row">
-              <span>Comfort</span>
+              <span data-stat-label="comfort">편안함</span>
               <meter id="statComfort" min="0" max="10" value="0"></meter>
             </div>
           </div>
         </section>
 
         <section class="counter" aria-labelledby="stepPrompt">
-          <ol id="stepTrack" class="step-track" aria-label="Cooking steps"></ol>
+          <ol id="stepTrack" class="step-track" aria-label="조리 단계"></ol>
 
           <div class="compact-request" aria-live="polite">
-            <p class="section-label">Today's Table</p>
+            <p class="section-label" data-i18n="todayTable">오늘의 밥상</p>
             <strong id="compactRequestTitle"></strong>
             <p id="compactRequestText"></p>
           </div>
@@ -97,10 +103,10 @@
           <div id="choiceGrid" class="choice-grid"></div>
 
           <div class="counter-actions">
-            <button id="backBtn" class="icon-button" type="button" aria-label="Back" title="Back">
+            <button id="backBtn" class="icon-button" type="button" aria-label="이전" title="이전">
               <span aria-hidden="true">‹</span>
             </button>
-            <button id="nextBtn" class="primary-button" type="button">Next Step</button>
+            <button id="nextBtn" class="primary-button" type="button">다음 단계</button>
           </div>
 
           <section id="resultPanel" class="result-panel is-hidden" aria-live="polite">
@@ -110,15 +116,15 @@
             <p id="resultJudge"></p>
             <div id="resultTags" class="tag-row"></div>
             <div class="result-actions">
-              <button id="sameRequestBtn" class="secondary-button" type="button">Same Table</button>
-              <button id="newRoundBtn" class="primary-button" type="button">New Table</button>
+              <button id="sameRequestBtn" class="secondary-button" type="button">같은 밥상</button>
+              <button id="newRoundBtn" class="primary-button" type="button">새 밥상</button>
             </div>
           </section>
         </section>
 
         <aside class="cookbook" aria-labelledby="cookbookTitle">
-          <p class="section-label">Recipe Book</p>
-          <h2 id="cookbookTitle">Discovered Banchan</h2>
+          <p class="section-label" data-i18n="recipeBook">레시피 노트</p>
+          <h2 id="cookbookTitle">발견한 반찬</h2>
           <ul id="discoveryList"></ul>
         </aside>
       </section>

@@ -374,21 +374,25 @@ export const recipeMatches = [
 
 export const clashRules = [
   {
+    id: "anchovy-quick-pickle",
     ids: ["anchovy", "quick-pickle"],
     penalty: -9,
     line: "The quick pickle made the anchovies taste sharper than intended."
   },
   {
+    id: "potato-quick-pickle",
     ids: ["potato", "quick-pickle"],
     penalty: -7,
     line: "The potato wanted warmth, but the pickle pulled it in two directions."
   },
   {
+    id: "spinach-simmer",
     ids: ["spinach", "simmer"],
     penalty: -6,
     line: "The greens lost their spring in the long simmer."
   },
   {
+    id: "tofu-salt-squeeze",
     ids: ["tofu", "salt-squeeze"],
     penalty: -5,
     line: "The tofu gave up before the seasoning settled."
@@ -397,26 +401,31 @@ export const clashRules = [
 
 export const tiers = [
   {
+    id: "legend",
     min: 90,
     rank: "Table Legend",
     line: "The judge reaches for more rice before speaking."
   },
   {
+    id: "vanisher",
     min: 76,
     rank: "Rice Vanisher",
     line: "Balanced, confident, and gone faster than expected."
   },
   {
+    id: "winner",
     min: 61,
     rank: "Weeknight Winner",
     line: "A dependable banchan with one clear personality."
   },
   {
+    id: "pinch",
     min: 43,
     rank: "Needs Another Pinch",
     line: "There is a good idea here, but the table is still waiting."
   },
   {
+    id: "mystery",
     min: 0,
     rank: "Mystery Side Dish",
     line: "Bold choices. The rice looks concerned."

@@ -80,6 +80,48 @@ button {
   flex: 0 0 auto;
 }
 
+.topbar-actions {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.language-switcher {
+  display: grid;
+  align-content: center;
+  min-width: 152px;
+  min-height: 58px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfb;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.language-switcher select {
+  width: 100%;
+  min-height: 30px;
+  margin-top: 3px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: none;
+}
+
+.language-switcher select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--blue) 45%, white);
+  outline-offset: 2px;
+}
+
 .eyebrow,
 .section-label {
   margin: 0 0 5px;
@@ -708,8 +750,16 @@ button:disabled {
     flex-direction: column;
   }
 
-  .cookbook-count {
+  .topbar-actions {
     width: 100%;
+  }
+
+  .language-switcher {
+    flex: 1 1 160px;
+  }
+
+  .cookbook-count {
+    flex: 1 1 160px;
   }
 
   .game-grid,
