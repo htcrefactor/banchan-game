@@ -6,6 +6,8 @@ const storageKey = "banchan-maker-discoveries";
 const els = {
   requestTitle: document.querySelector("#requestTitle"),
   requestText: document.querySelector("#requestText"),
+  compactRequestTitle: document.querySelector("#compactRequestTitle"),
+  compactRequestText: document.querySelector("#compactRequestText"),
   stepTrack: document.querySelector("#stepTrack"),
   stepLabel: document.querySelector("#stepLabel"),
   stepPrompt: document.querySelector("#stepPrompt"),
@@ -96,6 +98,8 @@ function renderAll() {
 function renderRequest() {
   els.requestTitle.textContent = state.request.title;
   els.requestText.textContent = state.request.text;
+  els.compactRequestTitle.textContent = state.request.title;
+  els.compactRequestText.textContent = state.request.text;
 }
 
 function renderStepTrack() {
@@ -175,6 +179,16 @@ function showResult(dish) {
   els.resultTags.innerHTML = dish.tags.map((tag) => `<span>${tag}</span>`).join("");
   els.resultPanel.classList.remove("is-hidden");
   els.nextBtn.disabled = true;
+
+  if (window.matchMedia("(max-width: 1100px)").matches) {
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    requestAnimationFrame(() => {
+      els.resultPanel.scrollIntoView({
+        behavior: motionPreference ? "auto" : "smooth",
+        block: "nearest"
+      });
+    });
+  }
 }
 
 function resetRound(request) {
